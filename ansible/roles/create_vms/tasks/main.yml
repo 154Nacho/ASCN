@@ -1,0 +1,7 @@
+---
+- name: Create GCP instances
+  include_tasks: instance_creation.yml
+  loop: "{{ instances }}"
+
+- name: Refresh ansible dynamic inventory
+  meta: refresh_inventory

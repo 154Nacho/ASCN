@@ -1,0 +1,9 @@
+---
+- name: restart kubelet
+  service:
+    name: kubelet
+    state: restarted
+  register: kubelet_details
+  until: kubelet_details.status.ActiveState == "active"
+  retries: 5
+  delay: 60
